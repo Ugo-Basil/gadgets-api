@@ -1,0 +1,4 @@
+{
+    "port": "3000",
+    "mongodbUrl": "mongodb+srv://beezle:1NWel7VDCBRpRfiQ@cluster0.f8sitgo.mongodb.net/?retryWrites=true&w=majority"
+}
