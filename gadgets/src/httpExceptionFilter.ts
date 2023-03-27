@@ -1,5 +1,6 @@
 import {
   ArgumentsHost,
+  Catch,
   ExceptionFilter,
   HttpException,
   HttpStatus,
@@ -12,6 +13,7 @@ export interface HttpExceptionResponse {
   error: string;
 }
 
+@Catch()
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
   catch(exception: any, host: ArgumentsHost) {

@@ -3,6 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import config from 'config';
+import { AllExceptionFilter } from './httpExceptionFilter';
+import { APP_FILTER } from '@nestjs/core';
 @Module({
   imports: [
     MongooseModule.forRoot(config.get('mongodbUrl'), {
@@ -13,6 +15,12 @@ import config from 'config';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}
